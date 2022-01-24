@@ -2,8 +2,10 @@ package com.logisticcompany.team4.controller;
 
 import com.logisticcompany.team4.model.Company;
 import com.logisticcompany.team4.model.CustomerForm;
+import com.logisticcompany.team4.model.User;
 import com.logisticcompany.team4.services.CompanyServices;
 import com.logisticcompany.team4.services.CustomerFormServices;
+import com.logisticcompany.team4.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,9 @@ public class CustomerFormController {
     @Autowired
     private CompanyServices companyServices;
 
+    @Autowired
+    private UserServices userService;
+
     @GetMapping(path = "/customerForms")
     public String showAllFormsPage(Model model) {
         List<CustomerForm> customerForms = this.customerFormServices.findAll();
@@ -31,9 +36,12 @@ public class CustomerFormController {
         return "customerForms";
     }
 
-    @GetMapping(path = "/customerForms/{employeeId}")
-    public String showUnansweredFormsPage(Model model, @PathVariable("employeeId") int id) {
-        List<CustomerForm> unansweredForms = this.customerFormServices.getUnansweredForms(id);
+
+    @GetMapping(path = "/unansweredForms")
+    public String showUnansweredFormsPage(Model model) {
+        int employeeId = userService.getCurrentUser().getEmployee().getId();
+        List<CustomerForm> unansweredForms = this.customerFormServices.getUnansweredForms(employeeId);
+        model.addAttribute("employeeId", employeeId);
         model.addAttribute("unansweredForms", unansweredForms);
 
         return "customerForms-unanswered";

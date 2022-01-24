@@ -14,16 +14,7 @@
 
 <body>
 <div class="row">
-	<div class="navbar expanded">
-		<a class="col-1" href="./">
-			<img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo" />
-		</a>
-		<a href="./parcels">Parcel</a>
-		<a href="./reports">Reports</a>
-		<a href="./customerForms/add">Ask questions</a>
-		<a href="./register">Register</a>
-		<a href="./login">LogIn</a>
-	</div>
+	<div th:replace="fragments :: navbar" />
 
 	<div class="textContainerN"></div>
 

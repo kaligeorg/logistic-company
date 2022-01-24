@@ -1,5 +1,8 @@
 package com.logisticcompany.team4.controller;
 
+import com.logisticcompany.team4.model.Parcel;
+import com.logisticcompany.team4.services.ParcelServices;
+import com.logisticcompany.team4.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +23,12 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerServices customerServices;
+
+	@Autowired
+	private ParcelServices parcelServices;
+
+	@Autowired
+	private UserServices userService;
 
 	@GetMapping(path = "/customers")
 	public String showCustomersPage(Model model) {
@@ -57,6 +66,14 @@ public class CustomerController {
 	public String deleteCustomer(@PathVariable("id") int id) {
 		customerServices.deleteCustomer(id);
 		return "redirect:/customers";
+	}
+
+	@GetMapping(path = "/customers/parcels")
+	public String showCustomerParcels(Model model) {
+		int customerId = userService.getCurrentUser().getCustomer().getId();
+		List<Parcel> parcels = this.parcelServices.findAllByCustomer(customerId);
+		model.addAttribute("parcels", parcels);
+		return "customer-parcels";
 	}
 
 }

@@ -11,11 +11,9 @@ public class PageController {
 		return "index";
 	}
 
+
 	@GetMapping(path = "/login")
 	public String showLoginPage(){return "login";}
-
-	@GetMapping(path = "/admin-index")
-	public String showAdminPage(){return "admin-index";}
 
 	@GetMapping(path = "/operations")
 	public String showOperationsPage(){return "operations";}

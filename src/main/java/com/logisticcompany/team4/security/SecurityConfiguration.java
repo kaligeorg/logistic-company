@@ -44,19 +44,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register_success").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/index.html").permitAll()
-                .antMatchers("/profile-index.html").authenticated()
-                .antMatchers("/admin-index.html").hasRole("ADMIN")
-//                .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
-//                .antMatchers("/companies-add").hasAuthority("ACCESS_COMPANIES")
-//                .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
+                .antMatchers("/companies/parcels").hasRole("EMPLOYEE")
+                .antMatchers("/customers/parcels").hasRole("CUSTOMER")
+                //reports antMatchers
+                .antMatchers("/reports").hasAnyRole("ADMIN")
                 .antMatchers("/users/**").hasRole("ADMIN")
                 .antMatchers("/companies/**").hasRole("ADMIN")
-                .antMatchers("/customerForms/**").hasAnyRole("ADMIN", "EMPLOYEE")
-                .antMatchers("/customers/**").hasAnyRole("ADMIN", "EMPLOYEE")
+                .antMatchers("/customerForms").hasRole("ADMIN")
+                .antMatchers("/customers/**").hasRole("ADMIN")
+                .antMatchers("/offices/**").hasRole("ADMIN")
+                .antMatchers("/parcels").hasRole("ADMIN")
                 .antMatchers("/employees/**").hasRole("ADMIN")
-                .antMatchers("/fragments").hasAnyRole("ADMIN", "EMPLOYEE")
                 .antMatchers("/register_employee").hasRole("ADMIN")
-                .antMatchers("/reports").hasAnyRole("ADMIN", "EMPLOYEE")
 
                 .and()
                 .formLogin()
@@ -65,7 +64,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("txtUsername")
                 .passwordParameter("txtPassword")
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/");
 
         http.csrf().disable();
         http.headers().frameOptions().disable();

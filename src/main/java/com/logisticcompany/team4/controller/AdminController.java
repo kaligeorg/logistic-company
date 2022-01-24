@@ -40,7 +40,7 @@ public class AdminController {
                 office
         );
         registrationService.registerEmployee(registrationRequest);
-        return "/register_success";
+        return "/reports";
     }
 
 

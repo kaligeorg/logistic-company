@@ -41,12 +41,15 @@ public class Parcel {
 	@ManyToOne
 	@JoinColumn(name = "office_id", nullable = true)
 	Office sentFromOffice;
+
+	String receiverName;
+	String senderName;
 	
 	public Parcel() {
 	}
 
 	public Parcel(int id, Customer sender, Customer receiver, double weight, String deliveryAddress, double price,
-			double transportCost, Office sentFromOffice, ParcelStatus parcelStatus) {
+				  double transportCost, Office sentFromOffice, ParcelStatus parcelStatus) {
 		this.id = id;
 		this.sender = sender;
 		this.receiver = receiver;
@@ -56,6 +59,8 @@ public class Parcel {
 		this.transportCost = transportCost;
 		this.sentFromOffice = sentFromOffice;
 		this.parcelStatus = parcelStatus;
+		this.senderName = sender.getUser().getFirstName() + " " + sender.getUser().getLastName();
+		this.receiverName = receiver.getUser().getFirstName() + " " + receiver.getUser().getLastName();
 	}
 
 	public int getId() {
@@ -129,5 +134,23 @@ public class Parcel {
 	public void setSentFromOffice(Office sentFromOffice) {
 		this.sentFromOffice = sentFromOffice;
 	}
+
+
+	public String getReceiverName() {
+		return receiverName;
+	}
+
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+
+	public String getSenderName() {
+		return senderName;
+	}
+
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
+
 
 }

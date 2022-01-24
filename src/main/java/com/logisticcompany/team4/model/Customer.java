@@ -27,7 +27,9 @@ public class Customer {
 	
 	String address;
 	
-	
+	boolean isDeleted = false;
+
+
 	public Customer() {
 	}
 
@@ -67,6 +69,12 @@ public class Customer {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
+
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		isDeleted = deleted;
+	}
 }

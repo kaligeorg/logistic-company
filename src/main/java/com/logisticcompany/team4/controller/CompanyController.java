@@ -2,6 +2,9 @@ package com.logisticcompany.team4.controller;
 
 import java.util.List;
 
+import com.logisticcompany.team4.model.Parcel;
+import com.logisticcompany.team4.services.ParcelServices;
+import com.logisticcompany.team4.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +22,12 @@ public class CompanyController {
 
 	@Autowired
 	private CompanyServices companyServices;
+
+	@Autowired
+	private ParcelServices parcelServices;
+
+	@Autowired
+	private UserServices userService;
 
 	@GetMapping(path = "/companies")
 	public String showCompaniesPage(Model model) {
@@ -39,6 +48,14 @@ public class CompanyController {
 		companyServices.addCompany(company);
 
 		return "redirect:/companies";
+	}
+
+	@GetMapping(path = "/companies/parcels")
+	public String showParcels(Model model) {
+		int companyId = userService.getCurrentUser().getEmployee().getOffice().getCompany().getId();
+		List<Parcel> parcels = this.parcelServices.findAllByCompany(companyId);
+		model.addAttribute("parcels", parcels);
+		return "company-parcels";
 	}
 
 	@GetMapping("/companies/edit/{id}")

@@ -1,39 +1,54 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
-<!-- Fragment #1 : Header files contains css and js references -->
-<head th:fragment="headerfiles">
-    <title>Logistic Company</title>
-    <meta charset="UTF-8"/>
-    <link th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}" rel="stylesheet">
-</head>
 <body>
+<div th:fragment="navbar" class="row">
 
-<!-- Fragment #2 : Navbar contains nav links -->
-<div th:fragment="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Logistic Company</a>
+    <!--    if it is not authenticated-->
+    <div th:if="!${#request.isUserInRole('ADMIN')} and !${#request.isUserInRole('EMPLOYEE')} and !${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
+        <a class="col-1" href="./">
+            <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
+        </a>
+        <a href="./register">Register</a>
+        <a href="./login">LogIn</a>
+    </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/index}"><i class="fa fa-home"></i>Home</a>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/profile-index}">Profile</a>
-                </li>
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/admin-index}">Admin</a>
-                </li>
-<!--                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">-->
-            </ul>
-            <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
-                <button sec:authorize="isAnonymous()" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
-                <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
-            </form>
-        </div>
-    </nav>
+    <!--    if it is logged as admin-->
+    <div th:if="${#request.isUserInRole('ADMIN')} and !${#request.isUserInRole('EMPLOYEE')} and !${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
+        <a class="col-1" href="./">
+            <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
+        </a>
+        <a href="./parcels">Parcel</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" href="./reports">Reports</a>
+        <a href="./register_employee">Register Employee</a>
+        <a href="./logout">Logout</a>
+    </div>
+
+    <!--    if it is logged as employee-->
+    <div th:if="!${#request.isUserInRole('ADMIN')} and ${#request.isUserInRole('EMPLOYEE')} and !${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
+        <a class="col-1" href="./">
+            <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
+        </a>
+        <a href="./companies/parcels">Parcel</a>
+        <a href="./unansweredForms">Answer questions</a>
+        <a href="./logout">Logout</a>
+    </div>
+
+    <!--    if it is logged as customer-->
+    <div th:if="!${#request.isUserInRole('ADMIN')} and !${#request.isUserInRole('EMPLOYEE')} and ${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
+        <a class="col-1" href="./">
+            <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
+        </a>
+        <a href="./customers/parcels">Parcel</a>
+        <a href="./customerForms/add">Ask questions</a>
+        <a href="./logout">Logout</a>
+    </div>
+
+    <div class="textContainerN"></div>
+
+    <div class="textContainerN col-12">
+        <h1 class="h1">Logistic companies</h1>
+    </div>
 </div>
 </body>
 </html>
