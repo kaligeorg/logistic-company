@@ -28,7 +28,7 @@
 			<div>Address:</div>
 		</div>
 		<div class="formContainer3" id="right">
-			<form action="#" th:action="@{/comapnies/edit/{id}(id=${company.id})}" th:object="${company}" th:method="post">
+			<form action="#" th:action="@{/companies/edit/{id}(id=${company.id})}" th:object="${company}" th:method="post">
 				<div class="formContainer4"><input type="text" th:field="*{name}" /></div>
 				<div class="formContainer4"><input type="text" th:field="*{address}" /></div>
 				<div><input type="submit" value="Submit" /></div>

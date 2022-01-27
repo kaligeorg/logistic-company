@@ -32,7 +32,7 @@ public class ParcelController {
 	@PostMapping(path = "/parcels/add")
 	public String addParcel(@ModelAttribute Parcel parcel) {
 		parcelServices.addParcel(parcel);
-		return "redirect:/parcels";
+		return "redirect:/companies/parcels";
 	}
 
 	@GetMapping("/parcels/edit/{id}")
@@ -45,13 +45,13 @@ public class ParcelController {
 	@PostMapping("/parcels/edit/{id}")
 	public String updateParcel(@ModelAttribute Parcel parcel) throws Exception {
 		parcelServices.updateParcel(parcel);
-		return "redirect:/parcels";
+		return "redirect:/companies/parcels";
 	}
 
 	@GetMapping("/parcels/delete/{id}")
 	public String deleteParcel(@PathVariable("id") int id) {
 		parcelServices.deleteParcel(id);
-		return "redirect:/parcels";
+		return "redirect:/companies/parcels";
 	}
 
 }

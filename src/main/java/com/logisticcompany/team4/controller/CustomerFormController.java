@@ -57,7 +57,7 @@ public class CustomerFormController {
     @PostMapping("/customerForms/{id}")
     public String answerCustomerForm(@ModelAttribute CustomerForm customerForm) {
         customerFormServices.answerCustomerForm(customerForm);
-        return "redirect:/customerForms";
+        return "redirect:/unansweredForms";
     }
 
     @GetMapping(path = "/customerForms/add")
@@ -74,12 +74,12 @@ public class CustomerFormController {
 
         customerFormServices.addCustomerForm(customerForm);
 
-        return "redirect:/customerForms";
+        return "redirect:/";
     }
 
     @GetMapping("/customerForms/delete/{id}")
     public String deleteCustomerForm(@PathVariable("id") int id) {
         customerFormServices.deleteCustomerForm(id);
-        return "redirect:/customerForms";
+        return "redirect:/unansweredForms";
     }
 }
