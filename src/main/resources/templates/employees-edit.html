@@ -39,7 +39,11 @@
         <label>Salary</label><br>
         <input type="text" th:field="*{salary}" /><br><br>
         <label>Employee Type</label><br>
-        <input type="text" th:field="*{employeeType}" /><br><br>
+        <select name="employeeTypes">
+            <option th:each="employeeTypes:${T(constant.EmployeeType).values()}"
+                    th:value="${employeeTypes}"
+                    th:text="${employeeTypes}"></option>
+        </select><br><br>
         <label>Office</label><br>
         <input type="text" th:field="*{office}" /><br><br>
         <input type="submit" value="Submit" />

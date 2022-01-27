@@ -39,7 +39,12 @@
                 <label>Price</label><br>
                 <input type="text" th:field="*{price}" /><br><br>
                 <label>Parcel Status</label><br>
-                <input type="text" th:field="*{parcelStatus}" /><br><br>
+                <select name="parcelStatus">
+                    <option th:each="parcelStatuss:${T(constant.ParcelStatus).values()}"
+                            th:value="${parcelStatuss}"
+                            th:text="${parcelStatuss}"></option>
+                </select><br><br>
+<!--                <input type="text" th:field="*{parcelStatus}" /><br><br>-->
                 <input type="submit" value="Submit" />
             </form>
     </div>

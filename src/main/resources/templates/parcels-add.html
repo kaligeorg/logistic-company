@@ -39,7 +39,11 @@
                 <div class="formContainer4"><input type="text" th:field="*{weight}" /></div>
                 <div class="formContainer4"><input type="text" th:field="*{transportCost}" /></div>
                 <div class="formContainer4"><input type="" th:field="*{price}" /></div>
-                <div class="formContainer4"><input type="text" th:field="*{parcelStatus}" /></div>
+                <div class="formContainer4"><select name="parcelStatus">
+                    <option th:each="parcelStatuss:${T(constant.ParcelStatus).values()}"
+                            th:value="${parcelStatuss}"
+                            th:text="${parcelStatuss}"></option>
+                </select></div>
                 <div><input type="submit" value="Submit" /></div>
             </form>
         </div>
