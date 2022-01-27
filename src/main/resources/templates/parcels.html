@@ -22,29 +22,29 @@
 
 
     <div class="textContainerN3">
-        <div class="catalogMiniContainerM5" id="first">ID</div>
-        <div class="catalogMiniContainerM5" id="second">Sender</div>
-        <div class="catalogMiniContainerM5" id="third">Receiver</div>
-        <div class="catalogMiniContainerM5" id="fourth">Delivery address</div>
-        <div class="catalogMiniContainerM5" id="fifth">Price</div>
-        <div class="catalogMiniContainerM5" id="sixth">Weight</div>
-        <div class="catalogMiniContainerM5" id="seventeenth">Status</div>
-        <div class="catalogMiniContainerM5" id="seventh">Edit</div>
-        <div class="catalogMiniContainerM5" id="eight">Delete</div>
+        <div class="catalogMiniContainerM8" id="first">ID</div>
+        <div class="catalogMiniContainerM8" id="second">Sender</div>
+        <div class="catalogMiniContainerM8" id="third">Receiver</div>
+        <div class="catalogMiniContainerM8" id="fourth">Delivery address</div>
+        <div class="catalogMiniContainerM8" id="fifth">Price</div>
+        <div class="catalogMiniContainerM8" id="sixth">Weight</div>
+        <div class="catalogMiniContainerM8" id="seventeenth">Status</div>
+        <div class="catalogMiniContainerM8" id="seventh">Edit</div>
+        <div class="catalogMiniContainerM8" id="eight">Delete</div>
     </div>
 
     <div class="textContainerN2">
         <div th:if="${parcels.isEmpty()}">No employees available</div>
         <div th:each="parcel : ${parcels}">
-            <div th:text="${parcel.id}" class="catalogMiniContainer5" id="thirteen"> </div>
-            <div th:text="${parcel.sender.user.getLastName()}" class="catalogMiniContainer5" id="nine"> </div>
-            <div th:text="${parcel.receiver.user.getLastName()}" class="catalogMiniContainer5" id="tenth"> </div>
-            <div th:text="${parcel.deliveryAddress}" class="catalogMiniContainer5" id="eleventh"> </div>
-            <div th:text="${parcel.price}" class="catalogMiniContainer5" id="twelve"> </div>
-            <div th:text="${parcel.weight}" class="catalogMiniContainer5" id="fourteenth"> </div>
-            <div th:text="${parcel.parcelStatus}" class="catalogMiniContainer5" id="eighteen"> </div>
-            <a th:href="@{/parcels/edit/{id}(id=${parcel.id})}" class="catalogMiniContainer5" id="fifteen">Edit</a>
-            <a th:href="@{/parcels/delete/{id}(id=${parcel.id})}" class="catalogMiniContainer5" id="sixteen">Delete</a>
+            <div th:text="${parcel.id}" class="catalogMiniContainer8" id="thirteen"> </div>
+            <div th:text="${parcel.sender.user.getLastName()}" class="catalogMiniContainer8" id="nine"> </div>
+            <div th:text="${parcel.receiver.user.getLastName()}" class="catalogMiniContainer8" id="tenth"> </div>
+            <div th:text="${parcel.deliveryAddress}" class="catalogMiniContainer8" id="eleventh"> </div>
+            <div th:text="${parcel.price}" class="catalogMiniContainer8" id="twelve"> </div>
+            <div th:text="${parcel.weight}" class="catalogMiniContainer8" id="fourteenth"> </div>
+            <div th:text="${parcel.parcelStatus}" class="catalogMiniContainer8" id="eighteen"> </div>
+            <a th:href="@{/parcels/edit/{id}(id=${parcel.id})}" class="catalogMiniContainer8" id="fifteen">Edit</a>
+            <a th:href="@{/parcels/delete/{id}(id=${parcel.id})}" class="catalogMiniContainer8" id="sixteen">Delete</a>
         </div>
     </div>
 </div>

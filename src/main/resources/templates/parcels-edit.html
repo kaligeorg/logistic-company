@@ -22,32 +22,26 @@
         <h1 class="h1">Edit a parcel</h1>
     </div>
 
-    <div class="textContainerN">
-        <div class="formContainer1" id="left">
-            <div>Sender ID:</div>
-            <div>Receiver ID:</div>
-            <div>Office ID:</div>
-            <div>Delivery address:</div>
-            <div>Weight:</div>
-            <div>Transport cost:</div>
-            <div>Price:</div>
-            <div>Parcel status:</div>
-        </div>
-        <div class="formContainer3" id="right">
+    <div class="textContainerN2">
             <form action="#" th:action="@{/parcels/edit/{id}(id=${parcel.id})}" th:object="${parcel}" th:method="post">
-                <div class="formContainer5"><input type="text" th:field="*{sender.id}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{receiver.id}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{sentFromOffice.id}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{deliveryAddress}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{weight}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{transportCost}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{price}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{parcelStatus}" />
-                </div>
-                <div><input type="submit" value="Submit" /></div>
+                <label>Sender</label><br>
+                <input type="text" th:field="*{sender.id}" /><br><br>
+                <label>Receiver</label><br>
+                <input type="text" th:field="*{receiver.id}" /><br><br>
+                <label>Office</label><br>
+                <input type="text" th:field="*{sentFromOffice.id}" /><br><br>
+                <label>Delivery Address</label><br>
+                <input type="text" th:field="*{deliveryAddress}" /><br><br>
+                <label>Weight</label><br>
+                <input type="text" th:field="*{weight}" /><br><br>
+                <label>Transport cost</label><br>
+                <input type="text" th:field="*{transportCost}" /><br><br>
+                <label>Price</label><br>
+                <input type="text" th:field="*{price}" /><br><br>
+                <label>Parcel Status</label><br>
+                <input type="text" th:field="*{parcelStatus}" /><br><br>
+                <input type="submit" value="Submit" />
             </form>
-        </div>
-
     </div>
 </div>
 

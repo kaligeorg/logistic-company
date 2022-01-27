@@ -22,25 +22,20 @@
         <h1 class="h1">Edit a office</h1>
     </div>
 
-    <div class="textContainerN">
-        <div class="formContainer1" id="left">
-            <div>Address:</div>
-            <div>Rent:</div>
-            <div>Company:</div>
-            <div>Employees:</div>
-            <div>Parcels:</div>
-        </div>
-        <div class="formContainer3" id="right">
-            <form action="#" th:action="@{/offices/edit/{id}(id=${office.id})}" th:object="${office}" th:method="post">
-                <div class="formContainer4"><input type="text" th:field="*{address}" /></div>
-                <div class="formContainer4"><input type="text" th:field="*{rent}" /></div>
-                <div class="formContainer4"><input type="text" th:field="*{company}" /></div>
-                <div class="formContainer4"><input type="text" th:field="*{employees}" /></div>
-                <div class="formContainer4"><input type="text" th:field="*{parcels}" /></div>
-                <div><input type="submit" value="Submit" /></div>
-            </form>
-        </div>
-
+    <div class="textContainerN2">
+    <form action="#" th:action="@{/offices/edit/{id}(id=${office.id})}" th:object="${office}" th:method="post">
+        <label>Address</label><br>
+        <input type="text" th:field="*{address}" /><br><br>
+        <label>Rent</label><br>
+        <input type="text" th:field="*{rent}" /><br><br>
+        <label>Company</label><br>
+        <input type="text" th:field="*{company}" /><br><br>
+        <label>Employees</label><br>
+        <input type="text" th:field="*{employees}" /><br><br>
+        <label>Parcels</label><br>
+        <input type="text" th:field="*{parcels}" /><br><br>
+        <input type="submit" value="Submit" />
+    </form>
     </div>
 </div>
 

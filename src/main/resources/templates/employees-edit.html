@@ -22,6 +22,7 @@
         <h1 class="h1">Edit a employee</h1>
     </div>
 
+    <div class="textContainerN2">
     <form action="#" th:action="@{/employees/edit/{id}(id=${employee.id})}" th:object="${employee}" th:method="post">
         <label>First name</label><br>
         <input type="text" th:field="*{user.firstName}" /><br><br>
