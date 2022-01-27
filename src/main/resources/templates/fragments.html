@@ -6,42 +6,42 @@
 
     <!--    if it is not authenticated-->
     <div th:if="!${#request.isUserInRole('ADMIN')} and !${#request.isUserInRole('EMPLOYEE')} and !${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
-        <a class="col-1" href="./">
+        <a class="col-1" href="/">
             <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
         </a>
-        <a href="./register">Register</a>
-        <a href="./login">LogIn</a>
+        <a href="/register">Register</a>
+        <a href="/login">LogIn</a>
     </div>
 
     <!--    if it is logged as admin-->
     <div th:if="${#request.isUserInRole('ADMIN')} and !${#request.isUserInRole('EMPLOYEE')} and !${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
-        <a class="col-1" href="./">
+        <a class="col-1" href="/">
             <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
         </a>
-        <a href="./parcels">Parcel</a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" href="./reports">Reports</a>
-        <a href="./register_employee">Register Employee</a>
-        <a href="./logout">Logout</a>
+        <a href="/parcels">Parcel</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/reports">Reports</a>
+        <a href="/register_employee">Register Employee</a>
+        <a href="/logout">Logout</a>
     </div>
 
     <!--    if it is logged as employee-->
     <div th:if="!${#request.isUserInRole('ADMIN')} and ${#request.isUserInRole('EMPLOYEE')} and !${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
-        <a class="col-1" href="./">
+        <a class="col-1" href="/">
             <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
         </a>
-        <a href="./companies/parcels">Parcel</a>
-        <a href="./unansweredForms">Answer questions</a>
-        <a href="./logout">Logout</a>
+        <a href="/companies/parcels">Parcel</a>
+        <a href="/unansweredForms">Answer questions</a>
+        <a href="/logout">Logout</a>
     </div>
 
     <!--    if it is logged as customer-->
     <div th:if="!${#request.isUserInRole('ADMIN')} and !${#request.isUserInRole('EMPLOYEE')} and ${#request.isUserInRole('CUSTOMER')}" class="navbar expanded">
-        <a class="col-1" href="./">
+        <a class="col-1" href="/">
             <img th:src="@{/images/logo.png}" class="logoImgMenu" alt="Logo"/>
         </a>
-        <a href="./customers/parcels">Parcel</a>
-        <a href="./customerForms/add">Ask questions</a>
-        <a href="./logout">Logout</a>
+        <a href="/customers/parcels">Parcel</a>
+        <a href="/customerForms/add">Ask questions</a>
+        <a href="/logout">Logout</a>
     </div>
 <!--
     <div class="textContainerN"></div>
