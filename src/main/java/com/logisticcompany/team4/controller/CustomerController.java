@@ -32,7 +32,7 @@ public class CustomerController {
 
 	@GetMapping(path = "/customers")
 	public String showCustomersPage(Model model) {
-		List<Customer> customers = customerServices.findAll(model);
+		List<Customer> customers = customerServices.findAll();
 		model.addAttribute("customers", customers);
 		return "customers";
 	}

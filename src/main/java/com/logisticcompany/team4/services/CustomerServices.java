@@ -20,7 +20,7 @@ public class CustomerServices {
 	@Autowired
     private CustomerRepository customerRepository;
 
-    public List<Customer> findAll(Model model) {
+    public List<Customer> findAll() {
         List<Customer> customers = customerRepository.findAll().stream().filter(c -> !c.isDeleted()).collect(Collectors.toList());
         return customers;
     }

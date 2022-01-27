@@ -31,7 +31,7 @@
             <div>Parcel status:</div>
         </div>
         <div class="formContainer2" id="right">
-            <form action="#" th:action="@{/parsels/add}" th:object="${parcel}" method="post">
+            <form action="#" th:action="@{/parcels/add}" th:object="${parcel}" method="post">
                 <div class="formContainer4"><input type="text" th:field="*{sender.id}" /></div>
                 <div class="formContainer4"><input type="text" th:field="*{receiver.id}" /></div>
                 <div class="formContainer4"><input type="text" th:field="*{sentFromOffice}" /></div>

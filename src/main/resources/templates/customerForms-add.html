@@ -29,7 +29,7 @@
             <div>Company:</div>
         </div>
         <div class="formContainer2" id="right">
-            <form action="#" th:action="@{/cuatomerForms/add}" th:object="${customerForm}" method="post">
+            <form action="#" th:action="@{/customerForms/add}" th:object="${customerForm}" method="post">
                 <div><input type="text" th:field="*{CFirstName}" /></div>
                 <div><input type="text" th:field="*{CLastName}" /></div>
                 <div><input type="email" th:field="*{CEmailAddress}" /></div>

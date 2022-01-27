@@ -20,9 +20,6 @@
         <h1 class="h1">Questions</h1>
     </div>
 
-    <div class="textContainerN">
-        <a th:href="@{/customerForms/add}">Add question</a>
-    </div>
 
     <div class="textContainerN3">
         <div class="catalogMiniContainerM5" id="first">ID</div>
@@ -32,8 +29,6 @@
         <div class="catalogMiniContainerM5" id="fifth">Phone number</div>
         <div class="catalogMiniContainerM5" id="fifteen">Content</div>
         <div class="catalogMiniContainerM5" id="eighteen">Answers</div>
-        <div class="catalogMiniContainerM5" id="sixth">Answer</div>
-        <div class="catalogMiniContainerM5" id="seventh">Delete</div>
     </div>
 
     <div class="textContainerN2">
@@ -46,8 +41,6 @@
             <div th:text="${customerForm.getCPhoneNumber()}" class="catalogMiniContainer5" id="twelve"> </div>
             <div th:text="${customerForm.getContent()}" class="catalogMiniContainer6" id="sixteen"> </div>
             <div th:text="${customerForm.getAnswer()}" class="catalogMiniContainer6" id="seventeenth"> </div>
-            <a th:href="@{/customerForms/answer/{id}(id=${customerForm.id})}" class="catalogMiniContainer5" id="thirteen">Answer</a>
-            <a th:href="@{/customerForms/delete/{id}(id=${customerForm.id})}" class="catalogMiniContainer5" id="fourteenth">Delete</a>
         </div>
     </div>
 </div>
