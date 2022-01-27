@@ -22,19 +22,14 @@
 		<h1 class="h1">Edit a company</h1>
 	</div>
 
-	<div class="textContainerN">
-		<div class="formContainer1" id="left">
-			<div>Name:</div>
-			<div>Address:</div>
-		</div>
-		<div class="formContainer3" id="right">
-			<form action="#" th:action="@{/comapnies/edit/{id}(id=${company.id})}" th:object="${company}" th:method="post">
-				<div class="formContainer4"><input type="text" th:field="*{name}" /></div>
-				<div class="formContainer4"><input type="text" th:field="*{address}" /></div>
-				<div><input type="submit" value="Submit" /></div>
+	<div class="textContainerN2">
+		<form action="#" th:action="@{/comapnies/edit/{id}(id=${company.id})}" th:object="${company}" th:method="post">
+			<label>Name</label><br>
+			<input type="text" th:field="*{name}" /><br><br>
+			<label>Address</label><br>
+			<input type="text" th:field="*{address}" /><br><br>
+			<input type="submit" value="Submit" />
 			</form>
-		</div>
-
 	</div>
 </div>
 

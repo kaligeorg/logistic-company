@@ -22,31 +22,27 @@
         <h1 class="h1">Edit a employee</h1>
     </div>
 
-    <div class="textContainerN">
-        <div class="formContainer1" id="left">
-            <div>First name:</div>
-            <div>Last name:</div>
-            <div>Email:</div>
-            <div>Username:</div>
-            <div>Password:</div>
-            <div>User ID:</div>
-            <div>Salary</div>
-            <div>Employee type</div>
-            <div>Office</div>
-        </div>
-        <div class="formContainer3" id="right">
-            <form action="#" th:action="@{/employees/edit/{id}(id=${employee.id})}" th:object="${employee}" th:method="post">
-                <div class="formContainer5"><input type="text" th:field="*{user.firstName}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{user.lastName}" /></div>
-                <div class="formContainer5"><input type="email" th:field="*{user.email}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{user.username}" /></div>
-                <div class="formContainer5"><input type="password" th:field="*{user.password}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{user}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{salary}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{employeeType}" /></div>
-                <div class="formContainer5"><input type="text" th:field="*{office}" /></div>
-                <div><input type="submit" value="Submit" /></div>
-            </form>
+    <form action="#" th:action="@{/employees/edit/{id}(id=${employee.id})}" th:object="${employee}" th:method="post">
+        <label>First name</label><br>
+        <input type="text" th:field="*{user.firstName}" /><br><br>
+        <label>Last name</label><br>
+        <input type="text" th:field="*{user.lastName}" /><br><br>
+        <label>Email</label><br>
+        <input type="email" th:field="*{user.email}" /><br><br>
+        <label>Username</label><br>
+        <input type="text" th:field="*{user.username}" /><br><br>
+        <label>Password</label><br>
+        <input type="password" th:field="*{user.password}" /><br><br>
+        <label>User</label><br>
+        <input type="text" th:field="*{user}" /><br><br>
+        <label>Salary</label><br>
+        <input type="text" th:field="*{salary}" /><br><br>
+        <label>Employee Type</label><br>
+        <input type="text" th:field="*{employeeType}" /><br><br>
+        <label>Office</label><br>
+        <input type="text" th:field="*{office}" /><br><br>
+                <div><input type="submit" value="Submit" />
+    </form>
         </div>
 
     </div>
