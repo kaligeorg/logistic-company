@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<div class="row">
+<!--<div class="row">-->
 	<div th:replace="fragments :: navbar" />
 
 	<div class="textContainerN"></div>
@@ -21,60 +21,30 @@
 	<div class="textContainerN col-12">
 		<h1 class="h1">Edit a customer</h1>
 	</div>
+<div class="textContainerN2">
+<form action="#" th:action="@{/customers/edit/{id}(id=${customer.id})}" th:object="${customer}" th:method="post">
+	<label>First name:</label><br>
+	<input type="text" th:field="*{user.firstName}" /><br><br>
+				<label>Last name:</label><br>
+	<input type="text" th:field="*{user.lastName}" /><br><br>
+                    <label>Email:</label><br>
+	<input type="email" th:field="*{user.email}" /><br><br>
 
-	<div class="textContainerN">
-		<div class="formContainer1" id="left">
-			<div>First name:</div>
-			<div>Last name:</div>
-			<div>Email:</div>
-			<div>Username:</div>
-			<div>Password:</div>
-			<div>Address:</div>
-		</div>
-		<div class="formContainer3" id="right">
-			<form action="#" th:action="@{/customers/edit/{id}(id=${customer.id})}" th:object="${customer}" th:method="post">
-				<div class="formContainer4"><input type="text" th:field="*{user.firstName}" /></div>
-				<div class="formContainer4"><input type="text" th:field="*{user.lastName}" /></div>
-				<div class="formContainer4"><input type="email" th:field="*{user.email}" /></div>
-				<div class="formContainer4"><input type="text" th:field="*{user.username}" /></div>
-				<div class="formContainer4"><input type="password" th:field="*{user.password}" /></div>
-				<div class="formContainer4"><input type="text" th:field="*{address}" /></div>
-				<div><input type="submit" value="Submit" /></div>
-			</form>
-		</div>
+                    <label>Username:</label><br>
+	<input type="text" th:field="*{user.username}" /><br><br>
 
-	</div>
+                    <label>Password:</label><br>
+	<input type="password" th:field="*{user.password}" /><br><br>
+
+	<label>Address:</label><br>
+	<input type="text" th:field="*{address}" /><br><br>
+	<input type="submit" value="Submit" />
+        </form>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
 
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--<meta charset="ISO-8859-1">-->
-<!--<link rel="stylesheet"-->
-<!--	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
-<!--<title>Logistic customer app</title>-->
-<!--</head>-->
-
-<!--<body>-->
-<!--	<h3>Edit the customer</h3>-->
-<!--	-->
-<!--	 <form action="#" th:action="@{/customers/edit/{id}(id=${customer.id})}" th:object="${customer}" th:method="post">-->
-<!--     	<p>First name: <input type="text" th:field="*{user.firstName}" /></p>-->
-<!--     	<p>Last name: <input type="text" th:field="*{user.lastName}" /></p>-->
-<!--     	<p>Address: <input type="text" th:field="*{address}" /></p>-->
-<!--     	<p>User: <input type="text" th:field="*{user}" /></p>-->
-<!--        <p><input type="submit" value="Submit" /></p>-->
-<!--    </form>-->
-
-
-<!--	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
-<!--	<script-->
-<!--		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
-<!--</body>-->
-<!--</html>-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script
+                src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        </body>
+        </html>
